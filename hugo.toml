@@ -6,6 +6,16 @@ title = 'Ghent University Library'
   [[module.imports]]
     path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
 
+  [[module.mounts]]
+    disableWatch = false
+    source = 'content'
+    target = 'content'
+
+  [[module.mounts]]
+    disableWatch = false
+    source = 'prebuild/public/libraries'
+    target = 'content/libraries'
+
 [caches]
   [caches.images]
     dir = ':cacheDir/images'

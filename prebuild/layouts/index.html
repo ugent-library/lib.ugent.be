@@ -1,0 +1,8 @@
+{{ with resources.GetRemote "https://widgets.lib.ugent.be/library_groups/main.json" }}
+  {{ $group := unmarshal .Content }}
+  {{ range $group.libraries }}
+    {{ $filename := printf "libraries/%s.md" (urlize .code) }} 
+    {{ $resource := resources.FromString $filename (jsonify .) }} 
+    {{ $file := $resource.RelPermalink }}
+  {{ end }}
+{{ end }}

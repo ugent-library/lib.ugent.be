@@ -1,0 +1,8 @@
+{{ define "main" }}
+  {{ range .Pages }}
+    <a href="{{ .RelPermalink }}" title="{{ .Params.name_en }}">
+      <img src="{{ .Params.image_url }}" title="{{ .Params.name_en }}" />
+      <strong>{{ .Params.name_en }}</strong>
+    </a>
+  {{ end }}
+{{ end }}

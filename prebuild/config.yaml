@@ -1,0 +1,8 @@
+disableKinds:
+- rss
+- sitemap
+- taxonomy
+- term
+outputs:
+  libraries:
+  - html

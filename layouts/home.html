@@ -1,12 +1,15 @@
 {{ define "main" }}
-  <form action="https://libugent.primo.exlibrisgroup.com/nde/search" method="get">
-    <input type="hidden" name="tab" value="Everything"/>
-    <input type="hidden" name="search_scope" value="MyInst_and_CI"/>
-    <input type="hidden" name="searchInFulltext" value="false"/>
-    <input type="hidden" name="vid" value="32RUG_INST:32RUG_INST"/>
-    <input type="hidden" name="lang" value="nl"/>
-    <input type="text" name="query" value=""/>
-    <button type="submit">Search</button>
-  </form>
-  {{ .Content }}
+<form action="https://libugent.primo.exlibrisgroup.com/nde/search" method="get">
+  <input type="hidden" name="tab" value="Everything"/>
+  <input type="hidden" name="search_scope" value="MyInst_and_CI"/>
+  <input type="hidden" name="searchInFulltext" value="false"/>
+  <input type="hidden" name="vid" value="32RUG_INST:32RUG_INST"/>
+  <input type="hidden" name="lang" value="nl"/>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Type your query here" aria-label="Query"
+      aria-describedby="search-btn" name="query" value=""/>
+    <button class="btn btn-outline-primary" type="submit" id="search-btn">Search</button>
+  </div>
+</form>
+{{ .Content }}
 {{ end }}
