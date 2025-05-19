@@ -1,6 +1,12 @@
 {{ define "main" }}
-    <a href="{{ .RelPermalink }}" title="{{ .Params.name_en }}">
-      <img src="{{ .Params.image_url }}" title="{{ .Params.name_en }}" />
-      <strong>{{ .Params.name_en }}</strong>
-    </a>
+<h1>{{ .Params.name_en }}</h1>
+<img src="{{ .Params.image_url }}" title="{{ .Params.name_en }}" />
+<strong>{{ .Params.name_en }}</strong>
+{{ with .Params.Address }}
+<ul class="list list-unstyled">
+    {{ range . }}
+    <li>{{ . }}</li>
+    {{ end }}
+</ul>
+{{ end }}
 {{ end }}
