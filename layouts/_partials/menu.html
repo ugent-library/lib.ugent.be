@@ -11,11 +11,19 @@ Renders a menu for the given menu ID.
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-  <nav>
-    <ul>
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    </ul>
-  </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">{{ site.Title }}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+      </ul>
+    </div>
+  </div>
+</nav>
 {{- end }}
 
 {{- define "_partials/inline/menu/walk.html" }}
@@ -23,9 +31,9 @@ Renders a menu for the given menu ID.
   {{- range .menuEntries }}
     {{- $attrs := dict "href" .URL }}
     {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+      {{- $attrs = merge $attrs (dict "class" "nav-item active" "aria-current" "page") }}
     {{- else if $page.HasMenuCurrent .Menu .}}
-      {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+      {{- $attrs = merge $attrs (dict "class" "nav-item" "aria-current" "true") }}
     {{- end }}
     {{- $name := .Name }}
     {{- with .Identifier }}
@@ -33,7 +41,7 @@ Renders a menu for the given menu ID.
         {{- $name = . }}
       {{- end }}
     {{- end }}
-    <li>
+    <li class="nav-item">
       <a
         {{- range $k, $v := $attrs }}
           {{- with $v }}
