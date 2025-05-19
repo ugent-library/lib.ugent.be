@@ -1,0 +1,8 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 'ugent'
+
+[module]
+[[module.imports]]
+path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
