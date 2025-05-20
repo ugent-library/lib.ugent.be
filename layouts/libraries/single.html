@@ -1,6 +1,9 @@
 {{ define "main" }}
 <h1>{{ .Params.name_en }}</h1>
-<img src="{{ .Params.image_url }}" title="{{ .Params.name_en }}" />
+<div data-library-open data-url="{{ printf `https://widgets.lib.ugent.be/libraries/%s/open` .Params.code }}"></div>
+{{ with .Params.image_url }}
+<img src="{{ . }}" title="{{ $.Params.name_en }}" />
+{{ end }}
 <strong>{{ .Params.name_en }}</strong>
 {{ with .Params.Address }}
 <ul class="list list-unstyled">
